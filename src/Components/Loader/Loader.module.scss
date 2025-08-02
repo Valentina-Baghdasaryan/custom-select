@@ -1,0 +1,11 @@
+.loaderWrapper{
+    display: flex;
+    justify-items: center;
+
+    .spinner{
+        width: 25px;
+        height: 25px;
+        border: 4px solid #ccc;
+        
+    }
+}
