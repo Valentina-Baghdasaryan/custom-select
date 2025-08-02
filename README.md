@@ -25,14 +25,6 @@ Create a responsive and reusable Select component that:
 
 ---
 
-## 🌐 API Used
-
-Data is fetched from:
-
-․․․
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
