@@ -10,7 +10,7 @@ interface SelectProps {
 }
 
 const CustomSelect = React.memo(function ({ options, onChange }: SelectProps) {
-  const [selectedValue, setSelectedValue] = useState("Choose your User");
+  const [selectedValue, setSelectedValue] = useState("Choose your option");
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
