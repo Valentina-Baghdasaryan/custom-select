@@ -41,6 +41,12 @@ Data is fetched from:
 git clone https://github.com/your-username/custom-select.git
 cd custom-select
 
+1. Create Env File
+
+cp .env.example .env
+
+Set VITE_API_URL as "https://jsonplaceholder.typicode.com/users"
+
 2․ Install dependencies
 
 npm install
