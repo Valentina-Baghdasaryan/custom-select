@@ -1,11 +1,15 @@
-import styles from './ErrorMessage.module.scss'
+import styles from "./ErrorMessage.module.scss";
 
 interface Props {
-message:string
+  message: string;
 }
 
-const ErrorMessage = function ({message}:Props){
-return <div className={styles.ErrorMessage}>{message}</div>
-}
+const ErrorMessage = function ({ message }: Props) {
+  return (
+    <div className={styles.ErrorMessage} role="alert">
+      {message}
+    </div>
+  );
+};
 
-export default ErrorMessage
+export default ErrorMessage;

@@ -1,30 +1,27 @@
-import styles from "./Select.module.scss";
-import downArrow from "../../assets/icons/down-arrow.png";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { Option } from "../../types/option";
+import downArrow from "../../assets/icons/down-arrow.png";
+
+import styles from "./Select.module.scss";
 
 interface SelectProps {
   options: Option[];
   onChange: (value: string) => void;
 }
 
-const CustomSelect = function ({ options , onChange }: SelectProps) {
+const CustomSelect = React.memo(function ({ options, onChange }: SelectProps) {
   const [selectedValue, setSelectedValue] = useState("Choose your User");
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
-  function handleOpenSelect() {
-    setIsOpen(true);
+  function toggleSelect() {
+    setIsOpen((prev) => !prev);
   }
 
-  function handleCloseSelect() {
+  function handleSelect(option: Option) {
+    setSelectedValue(option.label);
     setIsOpen(false);
-  }
-
-  function handleSelect(label: string) {
-    setSelectedValue(label);
-    handleCloseSelect();
-    onChange(label)
+    onChange(option.label);
   }
 
   useEffect(() => {
@@ -33,7 +30,7 @@ const CustomSelect = function ({ options , onChange }: SelectProps) {
         selectRef.current &&
         !selectRef.current.contains(event.target as Node)
       ) {
-        handleCloseSelect();
+        setIsOpen(false);
       }
     }
 
@@ -50,7 +47,7 @@ const CustomSelect = function ({ options , onChange }: SelectProps) {
     <div className={styles.select} ref={selectRef}>
       <div
         className={`${styles.selectHeader} ${isOpen ? styles.open : ""}`}
-        onClick={handleOpenSelect}
+        onClick={toggleSelect}
       >
         <h2>{selectedValue}</h2>
         <img src={downArrow} alt="down arrow" />
@@ -59,10 +56,7 @@ const CustomSelect = function ({ options , onChange }: SelectProps) {
         <div className={styles.selectBody}>
           <ul>
             {options.map((option) => (
-              <li
-                key={option.id}
-                onClick={() => handleSelect(option.label)}
-              >
+              <li key={option.id} onClick={() => handleSelect(option)}>
                 {option.label}
               </li>
             ))}
@@ -71,6 +65,6 @@ const CustomSelect = function ({ options , onChange }: SelectProps) {
       )}
     </div>
   );
-};
+});
 
 export default CustomSelect;

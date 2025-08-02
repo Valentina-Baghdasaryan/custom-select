@@ -1,69 +1,76 @@
-# React + TypeScript + Vite
+# 🧩 Custom Select Component (React + TypeScript + SCSS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a reusable custom `Select` component built using **React**, **TypeScript**, **SCSS**, and **Vite**. It fetches user data from an external API and displays the options in a dropdown without using the native HTML `<select>` and `<option>` tags.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objective
 
-## Expanding the ESLint configuration
+Create a responsive and reusable Select component that:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✅ Fetches option values from API
+- ✅ Displays loading and error states
+- ✅ Opens and closes on click
+- ✅ Triggers a callback (`onChange`) with the selected value
+- ✅ Does **not** use native select/option elements
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📦 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React**
+- **TypeScript**
+- **SCSS Modules**
+- **Vite**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🌐 API Used
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Data is fetched from:
+
+․․․
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/custom-select.git
+cd custom-select
+
+2․ Install dependencies
+
+npm install
+
+3. Run the development server
+
+npm run dev
+
+📁 Project Structure
+
+src/
+├── Components/
+│   ├── Select/
+│   │   ├── Select.tsx
+│   │   └── Select.module.scss
+│   ├── Loader/
+│   │   ├── Loader.tsx
+│   │   └── Loader.module.scss
+│   └── ErrorMessage/
+│       ├── ErrorMessage.tsx
+│       └── ErrorMessage.module.scss
+├── api/
+│   └── option.ts
+├── assets/
+│   ├── gifs/
+│   │   └── loading.gif
+│   └── icons/
+│       └── down-arrow.png
+├── types/
+│   └── option.ts
+├── App.tsx
+└── main.tsx
 ```
